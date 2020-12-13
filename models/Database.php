@@ -22,6 +22,7 @@ class Database
 
     public static function exec($sql)
     {
+        if (!self::$_connection) self::connect();
         $stmt = mysqli_prepare(self::$_connection, $sql);
 
         mysqli_stmt_execute($stmt);
