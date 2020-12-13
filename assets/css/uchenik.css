@@ -1,0 +1,36 @@
+
+button{
+    padding: 7px 16px 8px;
+    margin: auto;
+    cursor: pointer;
+    text-align: center;
+    background: 0 0;
+    background-color: #5181b8;
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    font-style: "font-weight:bold";
+}
+
+.block{
+  
+}
+
+.block_row{
+  display: flex;
+  flex-wrap: wrap;
+  
+  border: 10px solid #ece89d;
+  margin: 0px 0px 20px 0px;
+}
+
+.bloc_colum{
+  border: 10px solid #5e5373;
+}
+
+.block_item{
+  border: 20px solid #5e5373;
+  background-color: #18b5a4;
+  padding: 50px;
+  color: #fff;
+}

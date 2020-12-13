@@ -1,0 +1,383 @@
+
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	font-family: Montserrat;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	/*background: #edeef0;*/
+	background-image: url(assets/background.jpg);
+
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+
+.block_login{
+	display: block;
+	background: #fff;
+	text-align: center;
+	margin: 100px auto;
+	padding: 35px;
+	width: 420px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.block_register{
+	display: block;
+	background: #fff;
+	text-align: center;
+	margin: 35px auto;
+	padding: 3px;
+	width: 500px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+p{
+
+}
+
+input {
+	margin: 8px;
+	border: 1px solid grey;
+	border-radius: 5px;
+	padding: 6px 6px 6px 19px;
+}
+
+.head{
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.header{
+	display: flex;
+	flex: 1;
+	background: #4a76a8;
+	height: 50px;
+}
+
+.find_input{
+	box-sizing: border-box;
+	border-radius: 100px;
+	border: 1px solid #224b7a;
+	background: #224b7a;
+	padding: 6px 6px 6px 19px;
+	width: 230px;
+}
+
+button{
+	margin: 15px 2px;
+	background: green;
+	border-radius: 5px;
+	padding: 8px 16px 10px;
+	font-weight: bold;
+	color: #fff;
+}
+
+.buttons_div{
+	display: inline-block;
+	justify-content: center;
+}
+
+.shool_select{
+	margin: 8px;
+	border: 1px solid grey;
+	border-radius: 5px;
+	width: 220px;
+	margin: 0 auto;
+}
+
+.message{
+	margin: auto;
+	border: 1px solid red;
+	border-radius: 5px;
+	padding: 10px;
+	text-align: center;
+	width: 350px;
+	color: red;
+}
+
+.schools{
+	display: block;
+	overflow: auto;
+	background: #edeef0;
+	margin: 10px 5px;
+	width: 580px;
+	height: 570px; 
+	/*height: 570px;*/
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.shool_item{
+	overflow: hidden;
+	display: block;
+	background: grey;
+	border-radius: 100px;
+	margin: 10px;
+	width: 70px;
+	height: 70px;
+}
+
+.school_block{
+	display: flex;
+	background: white;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
+	margin: 3px;
+}
+.school_name{
+	display: block;
+	overflow: hidden;
+	width: 300px;
+	height: 100px;
+	padding: 15px 15px 15px 0px;
+	margin: auto 0px auto;
+}
+.school_icon{
+	display: flex;
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+}
+.osnovnoe_telo
+{
+	display: flex;
+}
+.profile{
+	display: flex;
+	background: #edeef0;
+	margin: 10px 0px 0px 0px;
+	width: 100%;
+	/*width: 900px;*/
+	/*height: 570px;*/
+	height: 570px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	padding: 5px;
+}
+
+.profile_block{
+	overflow: auto;
+	width: 540px;
+	height: auto;
+	background: white;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
+	margin: 3px;
+}
+
+.profile_block2{
+	text-align: center;
+	width: 380px;
+	height: auto;
+	background: white;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
+	margin: 3px;
+	margin-left: auto; 
+}
+
+.image_prifle{
+	display: flex;
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.frame_image{
+	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
+	margin: 20px auto;
+	overflow: hidden;
+	display: block;
+	background: grey;
+	border-radius: 5px;
+	width: 120px;
+	height: 140px;
+}
+
+button.change_avatar_btn{
+	background: #4a76a8;
+}
+
+.profile_head_text{
+	font-weight: bold;
+	font-size: 20px;
+	margin: 30px auto;
+}
+
+
+.children_block{
+	display: flex;
+	background: white;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
+	margin: 3px;
+}
+.children_item{
+	overflow: hidden;
+	display: block;
+	background: grey;
+	border-radius: 100px;
+	margin: 10px;
+	width: 70px;
+	height: 70px;
+}
+.children_name{
+	display: block;
+	overflow: hidden;
+	width: 300px;
+	height: 80px;
+	padding: 15px 15px 15px 0px;
+	margin: auto 0px auto;
+}
+.children_icon{
+	display: flex;
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.class_block{
+	display: flex;
+	background: white;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
+	margin: 3px;
+}
+.class_item{
+	overflow: hidden;
+	display: block;
+	background: grey;
+	border-radius: 100px;
+	margin: 10px;
+	width: 70px;
+	height: 70px;
+}
+.class_name{
+	display: block;
+	overflow: hidden;
+	width: 500px;
+	height: 70px;
+	padding: 5px 15px 15px 0px;
+	margin: auto 0px auto;
+}
+.class_icon{
+	display: flex;
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+}
+.b0{
+	display: block;
+	background: #edeef0;
+	margin: 10px 0px 0px 0px;
+	width: 950px;
+	/*width: 900px;*/
+	/*height: 570px;*/
+	height: 570px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	padding: 5px;
+}
+.b1{
+	display: flex;
+	width: auto;
+	height: 150px;
+	text-align: center;
+	padding-left: 5px;
+}
+.school_subjects{
+	display: block;
+	overflow: hidden;
+	background: #fff;
+	width: 300px;
+	height: 60px;
+	padding: 15px 15px 15px 0px;
+	margin: 15px auto;
+}
+
+.b2{
+	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
+	overflow: hidden;
+	display: block;
+	background: grey;
+	border-radius: 5px;
+	width: 120px;
+	height: 140px;
+}
+
+.info_profile{
+	margin: auto 30px;
+	text-align: left;
+}
+
+.fname{
+	font-size: 20px;
+}
+
+.b3{
+	flex-direction: column;
+	display: flex;
+	overflow: auto;
+	width: 945px;
+	height: 410px;
+	text-align: center;
+}
+.b3_block{
+	display: flex;
+	background: white;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
+	margin: 3px;
+	height: 15%;
+	text-align: left;
+}
+.b3_items{
+	overflow: hidden;
+	display: block;
+	background: grey;
+	border-radius: 100px;
+	margin: 10px;
+	width: 70px;
+	height: 70px;
+}
+
+.block_weeks{
+	display: block;
+	overflow: hidden;
+	background: #fff;
+	width: 300px;
+	height: 100%;
+	padding-top: 20px;
+	padding-left: 20px;
+}
+
+.block_days{
+	margin: auto auto auto 0;
+	width: auto;
+	height: 60px;
+	border: 1px solid grey;
+	padding: 4px;
+}
