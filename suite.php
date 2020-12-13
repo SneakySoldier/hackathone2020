@@ -55,7 +55,6 @@ if ($_SESSION['user']) {
 
 		</div>
 		<div class="profile_block2">
-			<?php var_dump() ?>
 			<div class="profile_head_text"><p>Профиль</p></div>
 			<div class="frame_image"><img src="assets/myprofile.png" alt="" class="image_prifle"></div>
 			<div><button type="submit" class="change_avatar_btn" style="background-color: #e5ebf1;color: #55677d;font-weight: normal;">Редактировать</button></div>
