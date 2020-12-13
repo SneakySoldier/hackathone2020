@@ -25,7 +25,7 @@ class User
     
     public static function isAdmin($id)
     {
-        return in_array(self::get($id)['email'], ['redmist.soldat@gmail.com']);
+        return self::get($id)['is_admin'] == 1;
     }
 
 }
