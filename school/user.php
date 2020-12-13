@@ -1,6 +1,10 @@
 <?php
+
+require_once __DIR__.'/../models/User.php';
+require_once __DIR__.'/../models/Task.php';
+
 session_start();
-$connect = mysqli_connect('localhost', 'root', 'root', 'hackathon');
+$connect = mysqli_connect('172.17.0.3', 'root', 'root', 'hackathon');
 
 if (!$connect) {
         die('Error connect to DataBase');
@@ -12,7 +16,7 @@ if ($_SESSION['user']) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +24,7 @@ if ($_SESSION['user']) {
 	<title>ЕСДЗ "Класс Клик"</title>
 </head>
 <body>
-	<form form action="../../../vendor/profile.php" method="post" enctype="multipart/form-data">
+	<!-- <form form action="../../../vendor/profile.php" method="post" enctype="multipart/form-data"> -->
 	<div class="header" style="display: flex; justify-content: space-between;">
 		<a href="#" style="font-weight: bold;color: #fff; margin: auto;">Обратная связь</a>
 		<a href="#" style="font-weight: bold;color: #fff; margin: auto;">ЕДИНАЯ СИСТЕМА ДОМАШНИХ ЗАДАНИЙ "КЛАСС КЛИК"</a>
@@ -30,17 +34,17 @@ if ($_SESSION['user']) {
 	<div class="schools">
 	<?php
         $school_select = mysqli_query($connect, "SELECT * FROM `1class_subjects`");
-        $sql = mysqli_fetch_all($school_select);
+        $subjects = mysqli_fetch_all($school_select, MYSQLI_ASSOC);
 
-        foreach ($sql as $sql) 
+        foreach ($subjects as $subject) 
         {
         ?>        
 		<div class="school_block">
 		<div class="shool_item">
-			<img src="../<?=$sql['3'];?>" alt="" class="school_icon">
+			<img src="../<?=$subject['icon'];?>" alt="" class="school_icon">
 		</div>
 		<div class="school_subjects">
-			<a href="?<?= http_build_query(array_merge($_GET,['subject' => $sql['1']])); ?>" style="font-size: 18px;"><?=$sql['1'];?></a>
+			<a href="?<?= http_build_query(array_merge($_GET, ['subject_id' => $subject['id']])); ?>" style="font-size: 18px;"><?=$subject['subjects'];?></a>
 		</div>
 		</div>
 		<?php 
@@ -124,29 +128,44 @@ if ($_SESSION['user']) {
 		<div class="b3">
 		<?php
         $school_select = mysqli_query($connect, "SELECT * FROM `weeks`");
-        $sql = mysqli_fetch_all($school_select);
-        foreach ($sql as $sql) 
-        {
-        ?>        
-		<div class="b3_block">
-		<div class="block_weeks">
-			<a href="?<?= http_build_query(array_merge($_GET,['week' => $sql['1']])); ?>" style="font-size: 18px;"><?=$sql['1'];?></a>
-				</div>
+		$weeks = mysqli_fetch_all($school_select, MYSQLI_ASSOC);
+		foreach ($weeks as $week): ?>
+			<div>
+				<p><strong><?=$week['week']?></strong></p>
 				<?php
-		        $school_select2 = mysqli_query($connect, "SELECT * FROM `days`");
-		        $sql2 = mysqli_fetch_all($school_select2);
-		        foreach ($sql2 as $sql2) 
-		        {
-		        	?>
-
-		<?php } ?>
-		</div>
-		<?php 
-        }
-        ?>
+				$task = Task::get($_GET['id'], $_GET['subject_id'], $_GET['week_id']);
+				?>
+				<p>Задача: <?=$task['title']?></p>
+				<p>Файл: <?=isset($task['file_path']) ? '<a href="'.$task['file_path'].'">'.$task['file_title'].'</a>' : 'нет'?></p>
+				<p>Учитель: <?=$task['teacher_name']?></p>
+				<?php if (User::isAdmin($_SESSION['user']['id'])): ?>
+				<form action="/school/user.php?<?= http_build_query(array_merge($_GET,['teacher_id' => $_SESSION['user']['id'], 'subject_id' => 1, 'week_id' => $week['id']])); ?>" method="post" enctype="multipart/form-data">
+					Описание задачи
+					<br>
+					<textarea name="title" id="" cols="100" rows="10"></textarea>
+					<br>
+        			Выбрать файл:
+					<input type="file" name="fileToUpload" id="fileToUpload">
+					<input type="hidden" name="fileToUpload">
+					<input type="submit" value="Загрузить файл" name="submit">
+				</form>
+				<?php endif ?>
+			</div>
+		<?php endforeach ?>
+		<?php
+		if (isset($_POST['title'])) {
+			$title = $_POST['title'];
+			$file = isset($_FILES['fileToUpload']) ? $_FILES['fileToUpload'] : null;
+			$teacherId = $_GET['teacher_id'];
+			$studentId = $_GET['id'];
+			$subjectId = $_GET['subject_id'];
+			$weekId = $_GET['week_id'];
+			Task::create($title, $teacherId, $studentId, $subjectId, $weekId, $file);
+		}
+		?>
 		</div>
 	</div>
 	</div>
-	</form>
+	<!-- </form> -->
 </body>
 </html>

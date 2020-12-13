@@ -1,15 +1,15 @@
 <?php
 session_start();
 require_once '../vendor/connect.php';
-/*$connect = mysqli_connect('localhost', 'root', 'root', 'hackathon');
+$connect = mysqli_connect('172.17.0.3', 'root', 'root', 'hackathon');
 if (!$connect) {
         die('Error connect to DataBase');
 }
 if ($_SESSION['user']) { 
-}*/
+}
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">

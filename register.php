@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-        $connect = mysqli_connect('localhost', 'root', 'root', 'hackathon');
+$connect = mysqli_connect('172.17.0.3', 'root', 'root', 'hackathon');
 
     if (!$connect) {
         die('Error connect to DataBase');
@@ -11,7 +11,7 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
