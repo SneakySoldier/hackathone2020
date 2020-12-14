@@ -144,7 +144,7 @@ if (isset($_POST['title'])) {
 			<div>
 				<p><strong><?=$week['week']?></strong></p>
 				<?php
-				$task = Task::get($_GET['id'], $_GET['subject_id'], $_GET['week_id']);
+				$task = Task::get($_GET['id'], $_GET['subject_id'], $week['id']);
 				?>
 				<p>Задача: <?=$task['title']?></p>
 				<p>Файл: <?=isset($task['file_path']) ? '<a href="'.$task['file_path'].'">'.$task['file_title'].'</a>' : 'нет'?></p>
