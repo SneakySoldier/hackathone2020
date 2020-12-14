@@ -19,6 +19,7 @@ class Task
             join users us on us.id = t.student_id
             join weeks w on w.id = t.week_id
             where t.student_id = ".$studentId." and t.subject_id = ".$subjectId." and t.week_id = ".$weekId."
+            order by t.id desc
         ";
         return Database::query($sql)[0];
     }

@@ -4,7 +4,7 @@ require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../models/Task.php';
 
 session_start();
-$connect = mysqli_connect('172.17.0.3', 'root', 'root', 'hackathon');
+$connect = mysqli_connect('172.17.0.2', 'root', 'root', 'hackathon');
 
 if (!$connect) {
         die('Error connect to DataBase');
@@ -13,6 +13,17 @@ if (!$connect) {
 if ($_SESSION['user']) {
     /*header('Location: /');*/
 }
+
+if (isset($_POST['title'])) {
+	$title = $_POST['title'];
+	$file = isset($_FILES['fileToUpload']) ? $_FILES['fileToUpload'] : null;
+	$teacherId = $_GET['teacher_id'];
+	$studentId = $_GET['id'];
+	$subjectId = $_GET['subject_id'];
+	$weekId = $_GET['week_id'];
+	Task::create($title, $teacherId, $studentId, $subjectId, $weekId, $file);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -152,17 +163,6 @@ if ($_SESSION['user']) {
 				<?php endif ?>
 			</div>
 		<?php endforeach ?>
-		<?php
-		if (isset($_POST['title'])) {
-			$title = $_POST['title'];
-			$file = isset($_FILES['fileToUpload']) ? $_FILES['fileToUpload'] : null;
-			$teacherId = $_GET['teacher_id'];
-			$studentId = $_GET['id'];
-			$subjectId = $_GET['subject_id'];
-			$weekId = $_GET['week_id'];
-			Task::create($title, $teacherId, $studentId, $subjectId, $weekId, $file);
-		}
-		?>
 		</div>
 	</div>
 	</div>

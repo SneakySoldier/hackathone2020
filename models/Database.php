@@ -6,7 +6,7 @@ class Database
 
     private static function connect()
     {
-        self::$_connection = mysqli_connect('172.17.0.3', 'root', 'root', 'hackathon');
+        self::$_connection = mysqli_connect('172.17.0.2', 'root', 'root', 'hackathon');
         if (!self::$_connection) {
             die('Error connect to DataBase');
         }
